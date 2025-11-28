@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галерея изображений</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="gallery-container">
+        <h1 class="gallery-header">Галерея изображений</h1>
+
+        <div class="gallery">
+            <div class="gallery-track" id="galleryTrack">
+                <!-- Изображения будут добавлены через JS -->
+            </div>
+            <div class="gallery-nav">
+                <button id="prevBtn">&lt;</button>
+                <button id="nextBtn">&gt;</button>
+            </div>
+        </div>
+
+        <div class="pager" id="pager">
+            Страница <span id="currentPage">1</span> из <span id="totalPages">3</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
