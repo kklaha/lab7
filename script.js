@@ -1,4 +1,3 @@
-// Массив из 8 изображений (замените на свои при необходимости)
 const images = [
     'https://i.pinimg.com/736x/96/96/ab/9696abe3cf1bfa6e14e099fbb68b7658.jpg',
     'https://i.pinimg.com/1200x/de/ee/29/deee2940ad31d5c274132d9052b992e5.jpg',
@@ -9,19 +8,13 @@ const images = [
     'https://i.pinimg.com/736x/bb/03/97/bb0397836852050fd6eca8e60a210f4d.jpg',
     'https://i.pinimg.com/736x/6e/ca/09/6eca094b983626f471e735e5182274f4.jpg'
 ];
-
-// Элементы DOM
 const galleryTrack = document.getElementById('galleryTrack');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 const currentPageEl = document.getElementById('currentPage');
 const totalPagesEl = document.getElementById('totalPages');
-
-// Состояние галереи
 let currentIndex = 0;
-let itemsPerPage = 3; // По умолчанию 3 элемента на десктопе
-
-// Функция обновления количества элементов на страницу в зависимости от ширины экрана
+let itemsPerPage = 3;
 function updateItemsPerPage() {
     if (window.innerWidth <= 768) {
         itemsPerPage = 1;
@@ -32,8 +25,6 @@ function updateItemsPerPage() {
     }
     updateGallery();
 }
-
-// Функция рендеринга галереи
 function renderGallery() {
     galleryTrack.innerHTML = '';
     images.forEach((imgSrc, index) => {
@@ -46,38 +37,24 @@ function renderGallery() {
         galleryTrack.appendChild(item);
     });
 }
-
-// Функция обновления состояния галереи
 function updateGallery() {
     const totalItems = images.length;
     const totalPages = Math.ceil(totalItems / itemsPerPage);
-
-    // Обновляем пейджер
     totalPagesEl.textContent = totalPages;
     currentPageEl.textContent = currentIndex + 1;
-
-    // Ограничиваем индекс
     if (currentIndex >= totalPages) {
         currentIndex = totalPages - 1;
     }
     if (currentIndex < 0) {
         currentIndex = 0;
     }
-
-    // Вычисляем смещение
     const trackWidth = galleryTrack.clientWidth;
     const itemWidth = trackWidth / itemsPerPage;
     const offset = -currentIndex * itemWidth;
-
-    // Применяем трансформацию
     galleryTrack.style.transform = `translateX(${offset}px)`;
-
-    // Блокировка кнопок
     prevBtn.disabled = currentIndex === 0;
     nextBtn.disabled = currentIndex >= totalPages - 1;
 }
-
-// Обработчики событий
 prevBtn.addEventListener('click', () => {
     if (currentIndex > 0) {
         currentIndex--;
@@ -92,11 +69,7 @@ nextBtn.addEventListener('click', () => {
         updateGallery();
     }
 });
-
-// Обновление при изменении размера окна
 window.addEventListener('resize', updateItemsPerPage);
-
-// Поддержка свайпов (мобильные устройства)
 let startX = 0;
 let isDragging = false;
 
@@ -123,9 +96,8 @@ galleryTrack.addEventListener('touchmove', (e) => {
 galleryTrack.addEventListener('touchend', () => {
     isDragging = false;
 });
-
-// Инициализация
 document.addEventListener('DOMContentLoaded', () => {
     renderGallery();
     updateItemsPerPage();
+
 });
