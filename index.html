@@ -3,28 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Галерея изображений</title>
+    <title>Галерея Slick Slider</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="gallery-container">
-        <h1 class="gallery-header">Галерея изображений</h1>
-
-        <div class="gallery">
-            <div class="gallery-track" id="galleryTrack">
-                <!-- Изображения будут добавлены через JS -->
-            </div>
-            <div class="gallery-nav">
-                <button id="prevBtn">&lt;</button>
-                <button id="nextBtn">&gt;</button>
-            </div>
+    <div class="container">
+        <h1>Галерея изображений</h1>
+        <div class="slider">
+            <div><img src="https://i.pinimg.com/736x/96/96/ab/9696abe3cf1bfa6e14e099fbb68b7658.jpg" alt="Изображение 1"></div>
+            <div><img src="https://i.pinimg.com/1200x/de/ee/29/deee2940ad31d5c274132d9052b992e5.jpg" alt="Изображение 2"></div>
+            <div><img src="https://i.pinimg.com/1200x/19/18/90/191890fcea0dc20dc1182205ba02744c.jpg" alt="Изображение 3"></div>
+            <div><img src="https://i.pinimg.com/1200x/8e/f4/6e/8ef46ed90b4a35284ccbcc8a129eb413.jpg" alt="Изображение 4"></div>
+            <div><img src="https://i.pinimg.com/1200x/b5/1e/ac/b51eac18069154668d9b66aeb34afe54.jpg" alt="Изображение 5"></div>
+            <div><img src="https://i.pinimg.com/736x/42/10/d1/4210d104e48f848aadc3fa2797b55b0c.jpg" alt="Изображение 6"></div>
+            <div><img src="https://i.pinimg.com/736x/bb/03/97/bb0397836852050fd6eca8e60a210f4d.jpg" alt="Изображение 7"></div>
+            <div><img src="https://i.pinimg.com/736x/6e/ca/09/6eca094b983626f471e735e5182274f4.jpg" alt="Изображение 8"></div>
         </div>
 
-        <div class="pager" id="pager">
-            Страница <span id="currentPage">1</span> из <span id="totalPages">3</span>
+        <div class="pager">
+            <span id="current-page">1</span> / <span id="total-pages">3</span>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
